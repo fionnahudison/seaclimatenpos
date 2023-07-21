@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Climate NPOs in Southeast Asia</title>
+
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords"  content="" />
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+	<a href="#" id="scroll1" style="display: none;"><span></span></a>
+
+
+<!--nav bar-->
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+      <img src=" " class="logo"> 
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right navstyle">
+        <li ><a href="about.html">About</a></li>
+        <li><a href="database.html">Database</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li class="active"><a href="contact.html">Contact Us</a></li>  
+        <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></a></li> 
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid greenstyle">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-9 pbt90 ">
+        <h1><strong>Contact Us</strong></h1>
+        <hr class="shorten"  align="left" >
+        <p>Last updated: 11 July 2023</p>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-9 pb200">
+        <p>Feel free to reach out to the team regarding any relevant feedback about the information presented (eg. outdated and/or missing information, inaccuracies)</p>
+        
+        <p>Don't see your organisation in our database? Reach out to us!
+          Contact personnel:</p>
+            <p>Dr Ba Yuhao | Assistant Professor | LKYSPP | NUS
+            <br> Email: yba@u.nus.edu
+            <br>Fax: xxx</p>
+
+            <p>Fionna Hudison | Research Assistant | CHS | NUS
+            <br> Email: fionna.hudison@u.nus.edu</p>
+        
+      </div>
+    </div>
+</div>
+  
+  
+
+<!-- footer-->
+<footer class="container-fluid footer footstyle mt70">
+  <div class="col-md-6">
+  </div>
+
+  <div class="col-md-6 text-right">
+    <p><h5><a class="footstyle" href="index.html">Home</a></h5></p> 
+      <p><h5><a class="footstyle" href="about.html">About</a></h5></p>
+      <p><h5><a class="footstyle" href="contact.html">Contact Us</a></h5></p>
+    <p><h5><a class="footstyle" href="database.html">Database</a></h5></p>
+  </div>
+
+    <div class="col-md-12"><hr></div>
+   <div class="col-md-6 pt10">
+      <a class="footstyle pl40" href="#">Privacy</a>
+     <a class="footstyle pl40" href="#">Term of Use</a>
+      <a class="footstyle pl40" href="#">Cookie Policy</a>
+   </div>
+
+   <div class="col-md-6 text-right">
+    <h5 class="footstyle">Last updated: 13 July 2023</h5>
+   </div>
+
+  </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myyscript.js"></script>
+<script>
+  $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+jQuery(function($){
+    $('.navbar-toggle').click(function(){
+    $('.navbar-collapse').toggleClass('right');
+    $('.navbar-toggle').toggleClass('indexcity');
+    });
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Climate NPOs in Southeast Asia</title>
+
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords"  content="" />
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+	<a href="#" id="scroll1" style="display: none;"><span></span></a>
+
+
+<!--nav bar-->
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+      <img src=" " class="logo"> 
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right navstyle">
+        <li><a href="about.html">About</a></li>
+        <li  class="active"><a href="database.html">Database</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact Us</a></li>  
+        <li><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></a></li> 
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid greenstyle">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-9 pbt90 ">
+        <h1><strong>CLIMATE NPOs DATABASE</strong></h1>
+        <hr class="shorten"  align="left" >
+        <p>Last updated: 11 July 2023</p>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+             <!--leaflet css --> 
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <style>
+
+  
+        
+    #map{
+        width: 100%;    
+        height: 100vh;
+    }
+    </style>
+
+
+    <div id="map"></div>
+
+
+
+
+<!--leaflet js --> 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><</script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<script>
+    //Map initialization
+var map = L.map('map').setView([2.2180, 115.6628], 5);
+
+//osm layer
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+osm.addTo(map);
+
+//mtbmap
+var MtbMap = L.tileLayer('http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &amp; USGS'
+});
+MtbMap.addTo(map);
+
+//google street
+googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+googleStreets.addTo(map);
+
+//voyage 
+var Voyage = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 20
+});
+Voyage.addTo(map);
+
+//marker
+var myIcon1 = L.icon({
+  iconUrl: 'singapore.png',
+  iconSize: [40, 40],
+});
+
+var singleMarker = L.marker([1.3521, 103.8198], { icon: myIcon1 }).addTo(map);
+var popupContent = 'Singapore<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = singleMarker.bindPopup(popupContent);
+popup.openPopup();
+
+
+var myIcon2 = L.icon({
+    iconUrl: 'malaysia.png',
+    iconSize: [40,40],
+});
+var secondMarker = L.marker([4.2105, 101.9758], {icon:myIcon2}).addTo(map);
+var popupContent = 'Malaysia<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = secondMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon3 = L.icon({
+    iconUrl: 'indonesia.png',
+    iconSize: [40,40],
+});
+var thirdMarker = L.marker([0.7893, 113.9213], {icon:myIcon3}).addTo(map);
+var popupContent = 'Indonesia<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = thirdMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon4 = L.icon({
+    iconUrl: 'thailand.png',
+    iconSize: [40,40],
+});
+var fourthMarker = L.marker([15.8700, 100.9925], {icon:myIcon4}).addTo(map);
+var popupContent = 'Thailand<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = fourthMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon5 = L.icon({
+    iconUrl: 'vietnam.png',
+    iconSize: [40,40],
+});
+var fifthMarker = L.marker([14.0583, 108.2772], {icon:myIcon5}).addTo(map);
+var popupContent = 'Vietnam<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = fifthMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon6 = L.icon({
+    iconUrl: 'laos.png',
+    iconSize: [40,40],
+});
+var sixthMarker = L.marker([19.8563, 102.4955], {icon:myIcon6}).addTo(map);
+var popupContent = 'Laos<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = sixthMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon7 = L.icon({
+    iconUrl: 'philippines.png',
+    iconSize: [40,40],
+});
+var seventhMarker = L.marker([12.8797, 121.7740], {icon:myIcon7}).addTo(map);
+var popupContent = 'Philippines<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = seventhMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon8 = L.icon({
+    iconUrl: 'myanmar.png',
+    iconSize: [40,40],
+});
+var eighthMarker = L.marker([21.9162, 95.9560], {icon:myIcon8}).addTo(map);
+var popupContent = 'Myanmar<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = eighthMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon9 = L.icon({
+    iconUrl: 'cambodia.png',
+    iconSize: [40,40],
+});
+var ninethMarker = L.marker([12.5657, 104.9910], {icon:myIcon9}).addTo(map);
+var popupContent = 'Cambodia<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = ninethMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var myIcon10 = L.icon({
+    iconUrl: 'brunei.png',
+    iconSize: [40,40],
+});
+var tenthMarker = L.marker([4.5353, 114.7277], {icon:myIcon10}).addTo(map);
+var popupContent = 'Brunei<br><a href="https://youtube.com">Click here to learn more</a>';
+var popup = tenthMarker.bindPopup(popupContent);
+popup.openPopup();
+
+var popup = L.popup();
+
+console.log(singleMarker.toGeoJSON())
+
+//layer controller
+var baseMaps = {
+    "Open Street Map": osm,
+    "MtbMap": MtbMap,
+    "Google street": googleStreets,
+    "Voyage": Voyage
+};
+
+var overlayMaps = {
+    "Singapore": singleMarker,
+    "Malaysia": secondMarker,
+    "Indonesia": thirdMarker,
+    "Thailand": fourthMarker,
+    "Vietnam": fifthMarker,
+    "Laos": sixthMarker,
+    "Philippines": seventhMarker,
+    "Myanmar": eighthMarker,
+    "Cambodia": ninethMarker,
+    "Brunei": tenthMarker
+};
+
+L.control.layers(baseMaps, overlayMaps,{collapsed:true}).addTo(map);
+
+L.Control.geocoder().addTo(map);
+
+
+</script>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <h1><strong><center>NPOs in Singapore</center></strong></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid pb50">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default normiebtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter 
+         <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default normiebtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: 
+         <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">A-Z</a></li>
+          <li><a href="#">Countries</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default normiebtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Countries
+         <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Singapore</a></li>
+          <li><a href="#">Malaysia</a></li>
+          <li><a href="#">Indonesia</a></li>
+          <li><a href="#">Philippines</a></li>
+          <li><a href="#">Vietnam</a></li>
+          <li><a href="#">Brunei</a></li>
+          <li><a href="#">Cambodia</a></li>
+          <li><a href="#">Thailand</a></li>
+          <li><a href="#">Laos</a></li>
+          <li><a href="#">Myanmar</a></li>
+          <li><a href="#">Others</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group pull-right pr20">
+        <button type="button" class="btn btn-default normiebtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span>
+        </button>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <h3><strong>Nature Society (Singapore)</strong></h3>
+      <p>The Nature Society (Singapore) or NSS is a non-government, non-profit organisation dedicated to the appreciation, conservation, study and enjoyment of the natural heritage in Singapore, Malaysia and the surrounding region. It was formerly known as the Singapore branch of the Malayan Nature Society. The branch was formed in 1954 and became Nature Society (Singapore) in 1991.</p>
+      <p><a href="#">Read More</a></p>
+
+    </div>
+    
+    <div class="col-md-offset-1 col-md-10">
+      <h3><strong>World Wide Fund Singapore</strong></h3>
+      <p>WWF-Singapore was founded in March 2006 to engage individuals and organisations in Singapore towards making a positive change in their lives and business operations.</p>
+      <p>Through awareness campaigns and outreach activities, WWF(S) aims to educate individuals from all walks of life on how a simple action can add up to make a big difference to our environment and safeguard the world’s biodiversity.</p>
+      <p><a a data-toggle="modal" data-target="#myModal2">Read More</a></p>
+    </div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+          <!-- insert content here -->
+          <div class="row">
+          <div class ="col-md-12 greenstyle">
+            <p><h2><center>World Wide Fund Singapore</center></h2></p>
+          </div>
+          <div class="col-md-12">
+            <p>The Nature Society (Singapore) or NSS is a non-government, non-profit organisation dedicated to the appreciation, conservation, study and enjoyment of the natural heritage in Singapore, Malaysia and the surrounding region. It was formerly known as the Singapore branch of the Malayan Nature Society. The branch was formed in 1954 and became Nature Society (Singapore) in 1991.</p>
+          </div>
+          <div class="col-md-6">
+            <h3><strong>Purpose</strong></h3>
+            <ul>
+            <li>Organise nature appreciation activities like guided nature walks, bird and butterfly watching, slide talks and overseas eco-trips.</li>
+            <li>Conduct conservation projects and surveys.</li>
+            <li>Collaborate with schools and community groups to promote nature appreciation and education.</li>
+            <li> Campaign for the protection of natural habitats.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3><strong>Programmes</strong></h3>
+            <ul>
+            <li>Guided nature walks, bird and butterfly watching workshops and courses</li>
+            <li>Overseas eco-trips</li>
+            <li>Various environmental and conservation projects</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3><strong>Collaborations</strong></h3>
+            <p>With government organisations & corporations</p>
+          </div>
+          <div class="col-md-6">
+            <h3><strong>Funding Sources</strong></h3>
+            <p>Run by volunteers, the Society depends financially on contributions from its members as well as companies, institutions and individuals.</p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <center><h4><strong>Number of Employees</strong></h4>
+                <p>24</p></center>
+            </div>
+            <div class="col-md-4">
+                    <center><h4><strong>Choice of Climate Action</strong></h4>
+                    <p>Mitigation/ Advocacy</p></center>
+                  </div>
+            <div class="col-md-4">
+                    <center><h4><strong>Geographical focus</strong></h4>
+                    <p>Singapore, Singapore</p></center>
+                  </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+      
+    <div class="col-md-offset-1 col-md-10">
+      <h3><strong>Zero Waste Sg</strong></h3>
+      <p>Zero Waste SG is a charity and non-governmental organisation leading the drive towards zero waste in Singapore through education and advocacy.
+      <p>Zero Waste SG started as a website in 2008 providing tips and resources on waste minimisation and recycling.</p>
+      <p>In 2015, Zero Waste SG was formally established as a not-for-profit and non-governmental organisation leading the drive towards zero waste in Singapore through education and advocacy.</p>
+      <p>Today, Zero Waste SG has grown to become a recognised charity that has reached over 55,000 people and engaged more than 220 companies through its campaigns and services."</p>
+      <p><a href="#">Read More</a></p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- footer-->
+<footer class="container-fluid footer footstyle mt70">
+  <div class="col-md-6">
+  </div>
+
+  <div class="col-md-6 text-right">
+    <p><h5><a class="footstyle" href="index.html">Home</a></h5></p> 
+      <p><h5><a class="footstyle" href="about.html">About</a></h5></p>
+      <p><h5><a class="footstyle" href="contacts.html">Contact Us</a></h5></p>
+    <p><h5><a class="footstyle" href="database.html">Database</a></h5></p>
+  </div>
+
+    <div class="col-md-12"><hr></div>
+   <div class="col-md-6 pt10">
+      <a class="footstyle pl40" href="#">Privacy</a>
+     <a class="footstyle pl40" href="#">Term of Use</a>
+      <a class="footstyle pl40" href="#">Cookie Policy</a>
+   </div>
+
+   <div class="col-md-6 text-right">
+    <h5 class="footstyle">Last updated: 13 July 2023</h5>
+   </div>
+
+  </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myyscript.js"></script>
+<script>
+  $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+jQuery(function($){
+    $('.navbar-toggle').click(function(){
+    $('.navbar-collapse').toggleClass('right');
+    $('.navbar-toggle').toggleClass('indexcity');
+    });
+});
+
+</script>
+</body>
+</html>
