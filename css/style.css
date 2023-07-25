@@ -1,7 +1,7 @@
-@import url ('https://fonts.googleapis.com/css?family=RedHatDisplay');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
 
 body {
-  font-family: 'RedHatDisplay', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   color: #032e27;
   font-size: 16px;
   font-weight: 300;
@@ -36,10 +36,11 @@ body {
   border-color: white;
 }
 
-ul.nav li a{
+ul.nav li a {
   font-size: 16px;
-  font-family: font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
+
 
 a:active {
   font-weight: 900;
@@ -66,8 +67,8 @@ a:active {
       height: 100%;
       width: 100%;
       left: 800px;
-      margin-right: 0px
-      margin-top: 0px;    
+      margin-right: 0px;
+      margin-top: 0px    
     }
     .container-fluid>.navbar-collapse {
       margin: 0px;
@@ -203,11 +204,14 @@ a.fancybtn:hover:after{
     border:8px solid transparent;
     border-bottom-color:#ffffff;
 }
-#scroll1:hover {s
-    background-color:#4e6e5e;
-    opacity:1;filter:"alpha(opacity=100)";
-    -ms-filter:"alpha(opacity=100)";
+
+#scroll1:hover {
+  background-color: #4e6e5e; /* Changes the background color to #4e6e5e when hovering */
+  opacity: 1; /* Sets the opacity to 100% when hovering */
+  filter: "alpha(opacity=100)"; /* Applies opacity for older versions of IE */
+  -ms-filter: "alpha(opacity=100)"; /* Applies opacity for IE 8 and below */
 }
+
 
 /* database modal */
 .mheaderstyle {
